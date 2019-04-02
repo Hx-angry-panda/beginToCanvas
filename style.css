@@ -1,10 +1,21 @@
 body{
     margin: 0;
 }
-
-#canvas{
+#Canvas{
     background: green;
-    position: relative;
     display: block;
-    height: 100vh;
+}
+#action{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+#brush{
+    display: none;
+}
+#action.x #brush{
+    display: inline-block;
+}
+#action.x #eraser{
+    display: none;
 }
