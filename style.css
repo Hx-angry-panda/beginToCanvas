@@ -1,21 +1,56 @@
-body{
+*{
     margin: 0;
+    padding: 0;
 }
+ol li{
+    list-style: none;
+}
+
+.icon {
+    width: 2em; height: 2em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+ }
 #Canvas{
-    background: green;
+    background: white;
     display: block;
 }
-#action{
+#actions{
     position: fixed;
-    left: 0;
-    bottom: 0;
+    top: 10px;
+    left: 10px;
 }
-#brush{
-    display: none;
+svg.active{
+    transform: scale(1.5);
 }
-#action.x #brush{
-    display: inline-block;
+svg{
+    margin: 10px 10px;
+    transition: all 0.3s
 }
-#action.x #eraser{
-    display: none;
+ol.colors{
+    position: fixed;
+    top: 60px;
+    left: 25px;
+}
+ol.colors li{
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    margin: 20px 0;
+}
+ol.colors li.red{
+    background: red;
+    transition: all 0.3s
+}
+ol.colors li.green{
+    background: green;
+    transition: all 0.3s
+}
+ol.colors li.blue{
+    background: blue;
+    transition: all 0.2s
+}
+ol.colors li.active{
+    transform: scale(1.5);
 }

@@ -8,115 +8,20 @@
 </head>
 <body>
     <canvas id="Canvas"></canvas>
-    <div id="action">
-        <button id="eraser">橡皮擦</button>
-        <button id="brush">画笔</button>
+    <div id="actions">
+        <svg class="icon active" aria-hidden="true" id="pencil">
+            <use xlink:href="#icon-pencil"></use>
+        </svg>
+        <svg class="icon" aria-hidden="true" id="eraser">
+            <use xlink:href="#icon-xiangpica"></use>
+        </svg>
     </div>
-    <script>
-        var xxx = document.getElementById('Canvas')
-        var ctx = xxx.getContext('2d')
-        autoSetCanvasSize()
-        
-        var lastPoint = {"x":undefined,"y":undefined}
-        var using = false
-        var eraserEnabled = false
-
-        eraser.onclick = function (){
-            eraserEnabled = !eraserEnabled
-            action.className = 'action x'
-        }
-        brush.onclick = function (){
-            eraserEnabled = false
-            action.className = 'action'
-        }
-
-        if (document.body.ontouchstart !== undefined) {
-            document.ontouchstart = function (a) {
-                var x = a.touches[0].clientX
-                var y = a.touches[0].clientY
-                using = true
-                if (eraserEnabled) {
-                    ctx.clearRect(x - 10, y - 10, 20, 20)
-                } else {
-                    lastPoint = { "x": x, "y": y }
-                    console.log(lastPoint)
-                }
-            }
-            document.ontouchmove = function (a) {
-                var x = a.touches[0].clientX
-                var y = a.touches[0].clientY
-                if (using) {
-                    if (eraserEnabled) {
-                        ctx.clearRect(x - 10, y - 10, 20, 20)
-                    } else {
-                        var newPoint = { "x": x, "y": y }
-                        drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
-                        lastPoint = newPoint
-                      }
-                }
-            }
-            document.ontouchend = function (a) {
-                using = false
-            }
-        } else {
-            document.onmousedown = function (a){
-            var x = a.clientX
-            var y = a.clientY
-            using = true
-            if(eraserEnabled){    
-                ctx.clearRect(x - 10, y - 10, 20, 20)
-            }else{
-                lastPoint = { "x": x, "y": y }
-                console.log(lastPoint)
-                }
-            }   
-            document.onmousemove = function (a){
-                var x = a.clientX
-                var y = a.clientY
-                if (using) {
-                    if (eraserEnabled) {
-                        ctx.clearRect(x - 10, y - 10, 20, 20)
-                    } else {
-                    var newPoint = { "x": x, "y": y }
-                    drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
-                    lastPoint = newPoint
-                    }
-                }
-            } 
-            document.onmouseup = function (a){
-            using = false 
-            }
-        }
-
-        
-
-        
-
-
-        function autoSetCanvasSize() {
-            function setCanvasSize() {
-                var pageWidth = document.documentElement.clientWidth //获取页面宽度
-                var pageHeight = document.documentElement.clientHeight //获取页面高度
-                xxx.width = pageWidth //变量xxx的class属性为pageWidth
-                xxx.height = pageHeight
-            }
-            setCanvasSize()
-            window.onresize = function () {
-                setCanvasSize()
-            }
-        }
-        function  drawCirle(x,y,radius){
-            ctx.beginPath()
-            ctx.arc(x,y,radius,0,Math.PI*2)
-            ctx.fill()
-        }
-        function drawLine(x1,y1,x2,y2){
-            ctx.beginPath()
-            ctx.lineWidth = 5
-            ctx.moveTo(x1,y1)
-            ctx.lineTo(x2,y2)
-            ctx.stroke()   
-        }
-    </script>
+    <ol class="colors">
+        <li id="red" class="red"></li>
+        <li id="green" class="green"></li>
+        <li id="blue" class="blue"></li>
+    </ol>
+    <script src="./main.js"></script>
+    <script src="//at.alicdn.com/t/font_1121809_6iba8apayz5.js"></script>
 </body>
 </html>
