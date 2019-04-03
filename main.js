@@ -1,10 +1,14 @@
 var xxx = document.getElementById('Canvas')
 var ctx = xxx.getContext('2d')
-autoSetCanvasSize()
 
+var pageWidth = document.documentElement.clientWidth //获取页面宽度
+var pageHeight = document.documentElement.clientHeight //获取页面高度
 var lastPoint = {"x":undefined,"y":undefined}
 var using = false
 var eraserEnabled = false
+var lineWidth = 5
+
+autoSetCanvasSize()
 
 eraser.onclick = function (){
     eraserEnabled = true
@@ -34,6 +38,26 @@ blue.onclick = function (){
     green.classList.remove('active')
     blue.classList.add('active')
 }
+thin.onclick = function (){
+    lineWidth = 5 // 为什么改成ctx.lineWidth = 5 或者及其他数值无效？？？ 
+
+}
+thick.onclick = function (){
+    lineWidth = 10 // 为什么改成ctx.lineWidth = 10 或者及其他数值无效？？？ 
+}
+reset.onclick = function(){
+    ctx.fillStyle = 'white'
+    ctx.fillRect(0,0,pageWidth,pageHeight)
+}
+download.onclick = function(){
+    var url = xxx.toDataURL("image/png")
+    var a = document.createElement('a')
+    document.body.appendChild(a)
+    a.href = url
+    a.download = 'paint' //下载的文件名
+    a.target = '_blank' //新窗口打开
+    a.click() //没有这个不能下载下来
+}
 
 if (document.body.ontouchstart !== undefined) {
     document.ontouchstart = function (a) {
@@ -44,7 +68,6 @@ if (document.body.ontouchstart !== undefined) {
             ctx.clearRect(x - 10, y - 10, 20, 20)
         } else {
             lastPoint = { "x": x, "y": y }
-            console.log(lastPoint)
         }
     }
     document.ontouchmove = function (a) {
@@ -72,7 +95,6 @@ if (document.body.ontouchstart !== undefined) {
         ctx.clearRect(x - 10, y - 10, 20, 20)
     }else{
         lastPoint = { "x": x, "y": y }
-        console.log(lastPoint)
         }
     }   
     document.onmousemove = function (a){
@@ -100,8 +122,7 @@ if (document.body.ontouchstart !== undefined) {
 
 function autoSetCanvasSize() {
     function setCanvasSize() {
-        var pageWidth = document.documentElement.clientWidth //获取页面宽度
-        var pageHeight = document.documentElement.clientHeight //获取页面高度
+
         xxx.width = pageWidth //变量xxx的class属性为pageWidth
         xxx.height = pageHeight
     }
@@ -117,7 +138,7 @@ function  drawCirle(x,y,radius){
 }
 function drawLine(x1,y1,x2,y2){
     ctx.beginPath()
-    ctx.lineWidth = 5
+    ctx.lineWidth = lineWidth
     ctx.moveTo(x1,y1)
     ctx.lineTo(x2,y2)
     ctx.stroke()

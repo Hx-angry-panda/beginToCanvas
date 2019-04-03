@@ -4,16 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
     <link rel="stylesheet" href="./style.css">
-    <title>Document</title>
+    <title>画板</title>
 </head>
 <body>
     <canvas id="Canvas"></canvas>
     <div id="actions">
-        <svg class="icon active" aria-hidden="true" id="pencil">
+        <svg class="icon active" id="pencil">
             <use xlink:href="#icon-pencil"></use>
         </svg>
-        <svg class="icon" aria-hidden="true" id="eraser">
+        <svg class="icon" id="eraser">
             <use xlink:href="#icon-xiangpica"></use>
+        </svg>
+        <svg class="icon" id="reset">
+            <use xlink:href="#icon-reset"></use>
+        </svg>
+        <svg class="icon" id="download">
+            <use xlink:href="#icon-download"></use>
         </svg>
     </div>
     <ol class="colors">
@@ -21,7 +27,11 @@
         <li id="green" class="green"></li>
         <li id="blue" class="blue"></li>
     </ol>
+    <ol class="sizes">
+        <li id="thin" class="thin"></li>
+        <li id="thick" class="thick"></li>
+    </ol>
     <script src="./main.js"></script>
-    <script src="//at.alicdn.com/t/font_1121809_6iba8apayz5.js"></script>
+    <script src="//at.alicdn.com/t/font_1121809_4sqxom5n1f9.js"></script>
 </body>
 </html>

@@ -2,6 +2,9 @@
     margin: 0;
     padding: 0;
 }
+body{
+    overflow: hidden; /* 防止触屏滚动 */
+}
 ol li{
     list-style: none;
 }
@@ -53,4 +56,20 @@ ol.colors li.blue{
 }
 ol.colors li.active{
     transform: scale(1.5);
+}
+ol.sizes{
+    position: fixed;
+    right: 20px;
+    top: 40px;
+}
+ol.sizes li.thin{
+    border-top: 8px solid black;
+    width: 32px;   
+}
+ol.sizes li{
+    margin: 20px 0;
+}
+ol.sizes li.thick{
+    border-top: 16px solid black;
+    width: 32px;
 }
