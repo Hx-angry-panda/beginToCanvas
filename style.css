@@ -2,13 +2,14 @@
     margin: 0;
     padding: 0;
 }
-body{
-    overflow: hidden; /* 防止触屏滚动 */
-}
 ol li{
     list-style: none;
 }
-
+#Canvas{
+    position: fixed;
+    left: 0;
+    top: 0;
+}
 .icon {
     width: 2em; height: 2em;
     vertical-align: -0.15em;
