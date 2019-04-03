@@ -43,20 +43,24 @@ ol.colors li{
     height: 20px;
     margin: 20px 0;
 }
+ol.colors li.black{
+    background: black;
+    transform: all 0.2s； /* 点击之后放大过渡0.3s */
+}
 ol.colors li.red{
     background: red;
-    transition: all 0.3s
+    transition: all 0.2s；
 }
 ol.colors li.green{
     background: green;
-    transition: all 0.3s
+    transition: all 0.2s；
 }
 ol.colors li.blue{
     background: blue;
-    transition: all 0.2s
+    transition: all 0.2s；
 }
 ol.colors li.active{
-    transform: scale(1.5);
+    transform: scale(1.5); /* 放大1.5倍 */
 }
 ol.sizes{
     position: fixed;

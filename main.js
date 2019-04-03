@@ -20,20 +20,30 @@ pencil.onclick = function (){
     pencil.classList.add('active')
     eraser.classList.remove('active')
 }
+black.onclick = function (){
+    ctx.strokeStyle = 'black'
+    black.classList.add('active')
+    red.classList.remove('active')
+    green.classList.remove('active')
+    blue.classList.remove('active')
+}
 red.onclick = function (){
     ctx.strokeStyle = 'red'
+    black.classList.remove('active')
     red.classList.add('active')
     green.classList.remove('active')
     blue.classList.remove('active')
 }
 green.onclick = function (){
     ctx.strokeStyle = 'green'
+    black.classList.remove('active')
     red.classList.remove('active')
     green.classList.add('active')
     blue.classList.remove('active')
 }
 blue.onclick = function (){
     ctx.strokeStyle = 'blue'
+    black.classList.remove('active')
     red.classList.remove('active')
     green.classList.remove('active')
     blue.classList.add('active')
