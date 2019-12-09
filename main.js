@@ -76,6 +76,10 @@ if (document.body.ontouchstart !== undefined) {
         var y = a.touches[0].clientY
         using = true
         if (eraserEnabled) {
+            black.classList.remove('active')
+            red.classList.remove('active')
+            green.classList.remove('active')
+            blue.classList.remove('active')
             lastPoint = { "x": x, "y": y }
             eraserCirle(x,y,2.5,'#fff')
         } else {
@@ -109,6 +113,10 @@ if (document.body.ontouchstart !== undefined) {
         using = true
         if (eraserEnabled) {
             //橡皮擦功能
+            black.classList.remove('active')
+            red.classList.remove('active')
+            green.classList.remove('active')
+            blue.classList.remove('active')
             lastPoint = { "x": x, "y": y }
             eraserCirle(x,y,2.5,'#fff')
         } else {
